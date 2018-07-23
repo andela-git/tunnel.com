@@ -1,0 +1,28 @@
+{
+  "name": "tunnel.com",
+  "version": "1.0.0",
+  "description": "A minimalistic medium app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "bin": {
+    "coveralls": "./bin/coveralls.js"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/andela-git/tunnel.com.git"
+  },
+  "author": "wale ayandiran",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/andela-git/tunnel.com/issues"
+  },
+  "homepage": "https://github.com/andela-git/tunnel.com#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "coveralls": "^3.0.2",
+    "mocha-lcov-reporter": "^1.3.0"
+  }
+}
