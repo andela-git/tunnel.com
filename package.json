@@ -4,7 +4,8 @@
   "description": "A minimalistic medium app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 0"
+    "test": "echo \"Error: no test specified\" && exit 0",
+    "build": "babel src -d lib"
   },
   "bin": {
     "coveralls": "./bin/coveralls.js"
@@ -21,6 +22,8 @@
   "homepage": "https://github.com/andela-git/tunnel.com#readme",
   "dependencies": {},
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
     "coveralls": "^3.0.2",
     "eslint": "^4.19.1",
     "eslint-config-airbnb": "^17.0.0",
