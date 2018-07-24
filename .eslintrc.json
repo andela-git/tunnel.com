@@ -2,10 +2,11 @@
     "extends": "airbnb",
     "parserOptions": {
         "ecmaVersion": 6,
-        "sourceType": "script",
+        "sourceType": "module",
         "ecmaFeatures": {}
     },
     "rules": {
+        "no-console":"off",
         "constructor-super": 2,
         "for-direction": 2,
         "getter-return": 2,
