@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/src/index --exec babel-node --presets env",
-    "test": "mocha --require babel-register",
+    "test": "mocha --require babel-register || true",
     "build": "babel server -d dist --presets env",
     "serve": "node dist/src/index"
   },
@@ -25,7 +25,10 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
     "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
     "pg": "^7.4.3",
     "pg-hstore": "^2.3.2",
     "sequelize": "^4.38.0",
