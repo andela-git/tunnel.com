@@ -5,3 +5,5 @@ coverage.json
 npm-debug.log
 dist/
 dist
+.env
+/.env

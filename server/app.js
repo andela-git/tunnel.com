@@ -10,6 +10,9 @@
 import express from 'express';
 import logger from 'morgan';
 import bodyParser from 'body-parser';
+
+require('dotenv').config();
+
 // load routes into the application
 // import routes from './src/router/routes';
 
