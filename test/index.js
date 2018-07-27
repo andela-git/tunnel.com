@@ -8,9 +8,9 @@ import chai from 'chai';
 
 import '../server/src/index';
 
-describe('Tunnel Node Server', () => {
+describe('Tunnel Node Server Running', () => {
   it('should return 200', (done) => {
-    http.get(process.env.HOST || 'http://127.0.0.1:7000', (res) => {
+    http.get(process.env.HOST, (res) => {
       chai.assert.equal(200, res.statusCode);
       done();
     });

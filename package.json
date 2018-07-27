@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "nodemon ./server/src/index --exec babel-node --presets env",
-    "test": "mocha --require babel-register || true",
+    "test": "mocha --recursive --require babel-register || true",
     "build": "babel server -d dist --presets env",
     "serve": "node dist/src/index"
   },
@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/andela-git/tunnel.com#readme",
   "dependencies": {
+    "bcrypt": "^3.0.0",
     "body-parser": "^1.18.3",
     "dotenv": "^6.0.0",
     "express": "^4.16.3",

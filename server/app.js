@@ -27,7 +27,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
 // routes(app);
-
+require('./src/routes/routes')(app);
 // setup a default cathch all route for lost/wrong api endpoints
 app.get('*', (req, res) => res.status(200).send({
   status: 200,
