@@ -16,5 +16,5 @@ module.exports = (app) => {
    */
 
   app.post('/api/v1/user/new', UserController.create);
-  app.post('/api/v1/user/login', UserController.login);
+  // app.post('/api/v1/user/login', UserController.login);
 };

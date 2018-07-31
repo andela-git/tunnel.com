@@ -5,7 +5,7 @@
 import chai from 'chai';
 import chaiHttp from 'chai-http';
 
-const should = chai.should();
+const { should } = chai.should();
 const { expect } = chai;
 
 chai.use(chaiHttp);

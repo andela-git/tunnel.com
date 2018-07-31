@@ -9,7 +9,7 @@ import http from 'http';
 import app from '../app';
 
 // setup port ton listen from env port if its set else default to port 8000
-const port = parseInt(process.env.PORT, 10) || 7000;
+const port = parseInt(process.env.PORT, 10) || 9000;
 app.set('port', port);
 
 // create actual actual http server and listen for connections
