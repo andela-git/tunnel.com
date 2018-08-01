@@ -69,4 +69,21 @@ describe('Account Authentication', () => {
       });
     done();
   });
+
+  it('Catch already registered email or username', (done) => {
+    chai.request(process.env.HOST)
+      .post('/api/v1/user/new')
+      .type('form')
+      .send({
+        _method: 'post',
+        username: 'walecloud',
+        password: 'password',
+      })
+      .end((err, res) => {
+        res.should.have.status(200);
+        res.body.should.have.property('error');
+      });
+    done();
+  });
+
 });
