@@ -10,8 +10,8 @@ module.exports = {
    * @param {*} res
    * @param {*} next
    */
-  verifyToken(request, res, next) {
-    const token = request;
+  verifyToken(req, res, next) {
+    const token = req.headers['x-access-token'];
     if (!token) {
       return res.status(403).send({
         auth: false,
@@ -25,13 +25,27 @@ module.exports = {
         return res.status(500).send({
           auth: false,
           error: {
-            body: ['internal server error'],
+            body: ['Access could not be verified'],
           },
         });
       }
-      // token verified successfully return next
-      req.UserId = decoded.id;
+      if (decoded) {
+        // token verified successfully return next
+        req.UserId = decoded.id;
+        return next();
+      }
+      return res.status(500).send({
+        auth: false,
+        error: {
+          body: ['Internal server error'],
+        },
+      });
     });
-    return next();
+    return res.status(500).send({
+      auth: false,
+      error: {
+        body: ['Failed to authenticate token'],
+      },
+    });
   },
 };

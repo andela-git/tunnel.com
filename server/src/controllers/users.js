@@ -48,13 +48,13 @@ module.exports = {
                   message: 'user created succesfully',
                   data: user,
                   auth: true,
-                }))
+                })
+              )
               .catch(error => res.status(401).send({
                 message: error,
               }));
           });
-        }
-        else {
+        } else {
           res.status(409).send({
             success: false,
             message: 'Email or Username already exists.',
@@ -83,22 +83,21 @@ module.exports = {
               return next(err);
             }
             if (!result) {
-              res.status(401).send({
+              return res.status(401).send({
                 success: false,
                 errors: {
                   body: ['Authentication failed'],
                 },
               });
-            } else {
-              // Login succesful
-              token = jwt.sign({ id: userExists.id }, process.env.SECRET, {
-                expiresIn: 86400, // 24 hours
-              });
-              res.status(200).send({
-                auth: true,
-                token,
-              });
             }
+            // Login succesful
+            token = jwt.sign({ id: userExists.id }, process.env.SECRET, {
+              expiresIn: 86400, // 24 hours
+            });
+            res.status(200).send({
+              auth: true,
+              token,
+            });
           });
         } else {
           res.status(401).send({
@@ -110,4 +109,10 @@ module.exports = {
         }
       }).catch(next);
   },
+
+  getToken(req, res) {
+    const demoToken = jwt.sign({ id: 1 }, process.env.SECRET);
+    res.send({ demoToken });
+  },
+
 };
