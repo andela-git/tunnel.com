@@ -13,7 +13,7 @@ describe('Post Endpoints', () => {
       .type('form')
       .send({
         _method: 'post',
-        userId,
+        userId: 1,
         title: 'post title',
         content: 'content',
         clapCount: 0,

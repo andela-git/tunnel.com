@@ -2,9 +2,9 @@
  * Testing file for Users route
  * @sequelize-mock for database testing
  */
-
-import chai from 'chai';
 import chaiHttp from 'chai-http';
+import chai, { expect } from 'chai';
+
 
 import users from '../mock/users';
 
@@ -63,7 +63,7 @@ describe('Account Authentication', () => {
         password: users.user1.password,
       })
       .end((err, res) => {
-        res.should.have.status(200);
+        expect(res.statusCode).to.equal(200);
         res.body.should.have.property('auth');
       });
     done();
