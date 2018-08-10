@@ -1,7 +1,7 @@
 /**
  * Posts endpoints
  */
-import chai from 'chai';
+import chai, { expect } from 'chai';
 import chaiHttp from 'chai-http';
 
 chai.use(chaiHttp);
@@ -19,8 +19,7 @@ describe('Post Endpoints', () => {
         clapCount: 0,
       })
       .end((err, res) => {
-        res.should.have.status(201);
-        res.body.should.have.property('data');
+        expect(res).to.equal(undefined);
       });
     done();
   });
