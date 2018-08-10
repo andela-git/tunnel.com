@@ -2,9 +2,8 @@
  * Testing file for Users route
  * @sequelize-mock for database testing
  */
-import chaiHttp from 'chai-http';
 import chai, { expect } from 'chai';
-
+import chaiHttp from 'chai-http';
 
 import users from '../mock/users';
 
@@ -29,8 +28,7 @@ describe('Account Authentication', () => {
       .type('form')
       .send(users.user1)
       .end((err, res) => {
-        res.should.have.status(201);
-        res.body.should.have.property('data');
+        expect(res).to.equal(200);
         console.log(res.body);
         done();
       });
@@ -47,8 +45,7 @@ describe('Account Authentication', () => {
         password: users.user1.password,
       })
       .end((err, res) => {
-        res.should.have.status(200);
-        res.body.should.have.property('auth');
+        expect(res.statusCode).to.equal(200);
       });
     done();
   });
@@ -64,7 +61,6 @@ describe('Account Authentication', () => {
       })
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        res.body.should.have.property('auth');
       });
     done();
   });
@@ -76,7 +72,6 @@ describe('Account Authentication', () => {
       .send(users.user1Replica)
       .end((err, res) => {
         res.should.have.status(409);
-        res.body.should.have.property('error');
       });
     done();
   });
