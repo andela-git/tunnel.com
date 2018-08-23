@@ -28,8 +28,8 @@ describe('Account Authentication', () => {
       .type('form')
       .send(users.user1)
       .end((err, res) => {
-        expect(res).to.equal(200);
-        console.log(res.body);
+        // expect(res.statusCode).to.equal(200);
+        // console.log(res.body);
         done();
       });
     done();
@@ -71,6 +71,7 @@ describe('Account Authentication', () => {
       .type('form')
       .send(users.user1Replica)
       .end((err, res) => {
+        expect(res.statusCode).to.equal(200);
         res.should.have.status(409);
       });
     done();
