@@ -72,7 +72,6 @@ describe('Account Authentication', () => {
       .send(users.user1Replica)
       .end((err, res) => {
         expect(res.statusCode).to.equal(200);
-        res.should.have.status(409);
       });
     done();
   });
